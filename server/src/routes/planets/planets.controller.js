@@ -1,4 +1,4 @@
-const planets = require("../../models/planets.model");
+const { planets } = require("../../models/planets.model");
 
 function getAllPlanets(req, res) {
   // we use return statament so our function stops exexuting, and only one response is ever set
