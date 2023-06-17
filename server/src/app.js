@@ -20,7 +20,7 @@ app.use(morgan());
 // parse incoming json middlware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "..", "public")));
-
+// express allows us to mount our middleware on a specfic path
 app.use("/planets", planetsRouter);
 app.use("/launches", launchesRouter);
 // serving application w/ client side routing we add an asterick
