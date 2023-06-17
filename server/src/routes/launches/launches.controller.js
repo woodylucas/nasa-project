@@ -4,6 +4,12 @@ function httpGetAllLaunches(req, res) {
   res.status(200).json(getAllLaunches());
 }
 
-function httpCreateLaunches(req, res) {}
+function httpAddNewLaunch(req, res) {
+  const launch = req.body;
 
-module.exports = { httpGetAllLaunches };
+  launch.launchDate = new Date(launch.launchDate);
+  addNewLaunch(launch);
+  return res.status(201).json(launch);
+}
+
+module.exports = { httpGetAllLaunches, httpAddNewLaunch };
