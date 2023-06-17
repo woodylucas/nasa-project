@@ -8,6 +8,9 @@ const launchesRouter = require("./routes/launches/launches.router");
 
 const app = express();
 
+// middleware chain
+
+// fix our cors issue: we are only going to accep request from this specific port
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -15,9 +18,9 @@ app.use(
 );
 
 // track incoming request w/ morgan
-app.use(morgan());
+app.use(morgan("combined"));
 
-// parse incoming json middlware
+// check for the express content-type parse incoming data json middlware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "..", "public")));
 
