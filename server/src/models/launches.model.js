@@ -13,6 +13,10 @@ const launch = {
   success: true,
 };
 
+function existsLaunchWithId(launchId) {
+  return launches.has(launchId);
+}
+
 // we are setting the launch flight number as the id -> to the associated object
 launches.set(launch.flightNumber, launch);
 
@@ -33,4 +37,16 @@ function addNewLaunch(launch) {
   );
 }
 
-module.exports = { getAllLaunches, addNewLaunch };
+function abortLaunchById(launchId) {
+  const aborted = launches.get(launchId);
+  aborted.success = false;
+  aborted.upcoming = false;
+  return aborted;
+}
+
+module.exports = {
+  existsLaunchWithId,
+  getAllLaunches,
+  addNewLaunch,
+  abortLaunchById,
+};
