@@ -11,6 +11,7 @@ function httpGetAllLaunches(req, res) {
 
 function httpAddNewLaunch(req, res) {
   const launch = req.body;
+  console.log(launch);
 
   if (
     !launch.mission ||
@@ -45,6 +46,7 @@ function httpAbortLaunch(req, res) {
 
   // if launch does exist return successful status code
   const aborted = abortLaunchById(launchId);
+  console.log("aborted", aborted);
   res.status(200).json(aborted);
 }
 
